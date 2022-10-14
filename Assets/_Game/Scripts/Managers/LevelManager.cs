@@ -121,8 +121,8 @@ public class LevelManager : Singleton<LevelManager>
         movingPlatforms[0].Transform.localPosition = MID;
         movingPlatforms[2].Transform.localPosition = MID;
 
-        characterRefs[0] = spawners[0].OnInit(Side.left, PlayerType.player0);
-        characterRefs[2] = spawners[2].OnInit(Side.right, PlayerType.player1);
+        characterRefs[0] = spawners[0].OnInit(Side.left, DataManager.Instance.CurrentP1);
+        characterRefs[2] = spawners[2].OnInit(Side.right, DataManager.Instance.CurrentP2);
 
         characterRefs[0].gameObject.SetActive(true);
         characterRefs[2].gameObject.SetActive(true);

@@ -15,6 +15,7 @@ public enum UIID
     UICEnd = 5,
     UICSelectCharacter = 8,
     UICSelectWeapon = 9,
+    UICSelectCharacterPvP = 10,
 }
 
 

@@ -13,13 +13,15 @@ public class DataManager : Singleton<DataManager>
     [SerializeField]
     private BotTypeAndData[] botTypeAndDatas;
 
-    private PlayerType currentPlayer;
+    private PlayerType currentPlayer, currentP1, currentP2;
     private WeaponType currentWeapon;
 
     private List<WeaponTypeAndData> playerUsable = new List<WeaponTypeAndData>();
     private List<WeaponTypeAndData> onlyBossUsable = new List<WeaponTypeAndData>();
 
     public PlayerType CurrentPlayer { get { return currentPlayer; } set { currentPlayer = value; } }
+    public PlayerType CurrentP1 { get { return currentP1; } set { currentP1 = value; } }
+    public PlayerType CurrentP2 { get { return currentP2; } set { currentP2 = value; } }
     public WeaponType CurrentWeapon { get { return currentWeapon; } set { currentWeapon = value; } }
     public int PlayerAmount { get { return playerTypeAndDatas.Length; } private set { } }
     public int WeaponAmount { get { return playerUsable.Count; } private set { } }
@@ -73,12 +75,16 @@ public class DataManager : Singleton<DataManager>
     public void SaveData()
     {
         PlayerPrefs.SetInt("character", (int)currentPlayer);
+        PlayerPrefs.SetInt("p1", (int)currentP1);
+        PlayerPrefs.SetInt("p2", (int)currentP2);
         PlayerPrefs.SetInt("weapon", (int)currentWeapon);
     }
 
     public void LoadData()
     {
         currentPlayer = (PlayerType)PlayerPrefs.GetInt("character");
+        currentP1 = (PlayerType)PlayerPrefs.GetInt("p1");
+        currentP2 = (PlayerType)PlayerPrefs.GetInt("p2");
         currentWeapon = (WeaponType)PlayerPrefs.GetInt("weapon");
     }
 }

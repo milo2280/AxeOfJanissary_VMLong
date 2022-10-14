@@ -71,8 +71,9 @@ public class CanvasMainMenu : UICanvas
 
     public void StartPvPButton()
     {
-        LevelManager.Instance.ChangeMode(GameMode.modePvP);
-        GameManager.Instance.ChangeState(GameState.Gameplay);
+        //LevelManager.Instance.ChangeMode(GameMode.modePvP);
+        //GameManager.Instance.ChangeState(GameState.Gameplay);
+        UIManager.Instance.OpenUI(UIID.UICSelectCharacterPvP);
         Close();
     }
 
