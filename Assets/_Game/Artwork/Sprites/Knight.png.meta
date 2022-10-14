@@ -4,46 +4,46 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -5711848221618334454
-    second: knight_blue_idle_0
+    second: player_0_idle_0
   - first:
       213: -8985680732576350864
-    second: knight_blue_idle_1
+    second: player_0_idle_1
   - first:
       213: 7827260208125532704
-    second: knight_blue_idle_2
+    second: player_0_idle_2
   - first:
       213: 5457420103614929235
-    second: knight_blue_idle_3
+    second: player_0_idle_3
   - first:
       213: -3132395524043622482
     second: knight_blue_hurt
   - first:
       213: -3454224475449390428
-    second: knight_red_idle_0
+    second: player_1_idle_0
   - first:
       213: -1931806161188048838
-    second: knight_red_idle_1
+    second: player_1_idle_1
   - first:
       213: 8050277750723066518
-    second: knight_red_idle_2
+    second: player_1_idle_2
   - first:
       213: 2970891327743047638
-    second: knight_red_idle_3
+    second: player_1_idle_3
   - first:
       213: 5239619439560480652
     second: knight_red_hurt
   - first:
       213: 8480205167599975839
-    second: knight_blue_jump
+    second: player_0_jump
   - first:
       213: 1086178698101399146
-    second: knight_red_jump
+    second: player_1_jump
   - first:
       213: 5891436520834976337
-    second: knight_blue_avatar
+    second: player_0_avatar
   - first:
       213: -7232600524240232993
-    second: knight_red_avatar
+    second: player_1_avatar
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -157,7 +157,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: knight_blue_idle_0
+      name: player_0_idle_0
       rect:
         serializedVersion: 2
         x: 1
@@ -178,7 +178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight_blue_idle_1
+      name: player_0_idle_1
       rect:
         serializedVersion: 2
         x: 17
@@ -199,7 +199,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight_blue_idle_2
+      name: player_0_idle_2
       rect:
         serializedVersion: 2
         x: 33
@@ -220,13 +220,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight_blue_idle_3
+      name: player_0_idle_3
       rect:
         serializedVersion: 2
         x: 49
         y: 33
         width: 15
-        height: 19
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,28 +241,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight_blue_hurt
-      rect:
-        serializedVersion: 2
-        x: 130
-        y: 37
-        width: 14
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea73b55fdde7784d0800000000000000
-      internalID: -3132395524043622482
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: knight_red_idle_0
+      name: player_1_idle_0
       rect:
         serializedVersion: 2
         x: 1
@@ -283,7 +262,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight_red_idle_1
+      name: player_1_idle_1
       rect:
         serializedVersion: 2
         x: 17
@@ -304,7 +283,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight_red_idle_2
+      name: player_1_idle_2
       rect:
         serializedVersion: 2
         x: 33
@@ -325,13 +304,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight_red_idle_3
+      name: player_1_idle_3
       rect:
         serializedVersion: 2
         x: 49
         y: 1
         width: 15
-        height: 19
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -346,28 +325,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight_red_hurt
-      rect:
-        serializedVersion: 2
-        x: 130
-        y: 5
-        width: 14
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c87db3d9e1ed6b840800000000000000
-      internalID: 5239619439560480652
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: knight_blue_jump
+      name: player_0_jump
       rect:
         serializedVersion: 2
         x: 113
@@ -388,7 +346,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight_red_jump
+      name: player_1_jump
       rect:
         serializedVersion: 2
         x: 113
@@ -409,7 +367,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight_blue_avatar
+      name: player_0_avatar
       rect:
         serializedVersion: 2
         x: 81
@@ -430,7 +388,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knight_red_avatar
+      name: player_1_avatar
       rect:
         serializedVersion: 2
         x: 81
@@ -438,7 +396,7 @@ TextureImporter:
         width: 15
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

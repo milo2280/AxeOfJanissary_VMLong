@@ -7,29 +7,20 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField]
     private Transform myTransform;
     [SerializeField]
-    private PlatformType type;
-    [SerializeField]
     private Transform[] pointTransforms;
     [SerializeField]
     private float speed;
-
-    private int index;
+    [SerializeField]
     private Platform platform;
 
-    private void Awake()
-    {
-        platform = Instantiate<Platform>(PrefabManager.Instance.GetPlatformPrefab(type), myTransform);
-    }
+    private int index;
+    private bool isReachDes;
+
+    public Transform Transform { get { return myTransform; } private set { } }
 
     private void OnEnable()
     {
         LevelManager.Instance.OnInitLevel += OnInit;
-    }
-
-    private void OnInit()
-    {
-        index = 0;
-        platform.Transform.localPosition = Vector3.zero;
     }
 
     private void Update()
@@ -39,13 +30,21 @@ public class MovingPlatform : MonoBehaviour
         MovePlatform();
     }
 
+    private void OnInit()
+    {
+        platform.Transform.localPosition = Vector3.zero;
+    }
+
     private void MovePlatform()
     {
-        if (index == pointTransforms.Length) index = 0;
+        if (isReachDes)
+        {
+            index = Random.Range(0, LevelManager.Instance.CurrentLevelData.Index + 1);
+        }
 
         platform.Transform.position = Vector3.MoveTowards(platform.Transform.position, pointTransforms[index].position, speed * Time.deltaTime);
         
-        if ((platform.Transform.position - pointTransforms[index].position).sqrMagnitude < 0.0001f) index++;
+        isReachDes = (platform.Transform.position - pointTransforms[index].position).sqrMagnitude < 0.0001f;
     }
 
     private void OnDisable()

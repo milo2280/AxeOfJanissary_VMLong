@@ -5,75 +5,88 @@ using UnityEngine.EventSystems;
 
 public class Player : Character
 {
-    private bool isAttacking;
+    private bool isAttackStarted;
 
-    private void Update()
+    protected override void Update()
     {
-        if (!GameManager.Instance.IsState(GameState.Gameplay)) return;
-        HandleInput();
+        base.Update();
+
+        if (isAttackStarted)
+        {
+            Holding();
+        }
     }
 
     public override void OnInit()
     {
         animController.ChangeAnim(CharacterAnim.idle);
-        LevelManager.Instance.PlayerData = data;
-        weapon.WeaponType = DataManager.Instance.CurrentPlayerWeapon;
+        weapon.OnInit(DataManager.Instance.CurrentWeapon);
         base.OnInit();
     }
 
-    private void HandleInput()
+    #region Receive Input From Gameplay Canvas
+
+    public void OnPointerDown()
     {
+        if (!isPlaying || isDead) return;
         if (!isGrounded || IsMouseOverUI()) return;
 
         if (weapon.IsRespawning)
         {
-            if (Input.GetMouseButtonDown(0)) Jump();
+            Jump();
         }
         else
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                holdTime = 0;
-                isAttacking = true;
-                forceBar.gameObject.SetActive(true);
-                animController.ChangeAnim(CharacterAnim.charge);
-            }
-
-            if (isAttacking && Input.GetMouseButton(0))
-            {
-                holdTime += Time.deltaTime;
-                forcePercent = Mathf.Clamp01(holdTime / MAX_HOLD_TIME);
-                if (!Mathf.Approximately(forcePercent, 1f))
-                {
-                    forceBar.UpdateFill(forcePercent);
-                }
-            }
-
-            if (isAttacking && Input.GetMouseButtonUp(0))
-            {
-                isAttacking = false;
-                Attack(forcePercent, 1);
-                forceBar.gameObject.SetActive(false);
-                animController.ChangeAnim(CharacterAnim.idle);
-            }
+            StartAttack();
         }
     }
 
-    protected override void Attack(float forcePercent, int side)
+    public void OnPointerUp()
     {
-        weapon.Attack(forcePercent, side);
+        if (!isPlaying || isDead) return;
+        if (!isGrounded || IsMouseOverUI()) return;
+
+        if (isAttackStarted)
+        {
+            FinishAttack();
+        }
     }
 
-    public override void OnHit(float damage)
+    #endregion
+
+    #region Attack Logic
+
+    private void StartAttack()
     {
-        base.OnHit(damage);
-        CameraManager.Instance.ShakeCamera(10f, 0.2f);
-        LevelManager.Instance.UpdateHP(Side.player, currentHP / data.HP);
+        holdTime = 0;
+        isAttackStarted = true;
+        forceBar.gameObject.SetActive(true);
+        animController.ChangeAnim(CharacterAnim.charge);
     }
+
+    private void Holding()
+    {
+        holdTime += Time.deltaTime;
+        forcePercent = Mathf.Clamp01(holdTime / MAX_HOLD_TIME);
+        if (!Mathf.Approximately(forcePercent, 1))
+        {
+            forceBar.UpdateFill(forcePercent);
+        }
+    }
+
+    private void FinishAttack()
+    {
+        isAttackStarted = false;
+        Attack(forcePercent);
+        forceBar.gameObject.SetActive(false);
+        animController.ChangeAnim(CharacterAnim.idle);
+    }
+
+    #endregion
 
     private bool IsMouseOverUI()
     {
-        if (GameManager.Instance.IsState(GameState.Gameplay))
+        if (isPlaying)
         {
             PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
             pointerEventData.position = Input.mousePosition;
@@ -93,5 +106,16 @@ public class Player : Character
         }
 
         return true;
+    }
+
+    public override void OnHit(float damage)
+    {
+        base.OnHit(damage);
+        CameraManager.Instance.ShakeCamera(10f, 0.2f);
+    }
+
+    protected override void OnGameStateChange(GameState state)
+    {
+        base.OnGameStateChange(state);
     }
 }

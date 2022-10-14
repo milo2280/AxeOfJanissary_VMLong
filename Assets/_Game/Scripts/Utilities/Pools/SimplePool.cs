@@ -164,8 +164,8 @@ public static class SimplePool
                 obj = pool.Dequeue();
             }
 
-            obj.transform.SetPositionAndRotation(position, rotation);
             obj.gameObject.SetActive(true);
+            obj.transform.SetPositionAndRotation(position, rotation);
 
             activeObjs.Add(obj);
 

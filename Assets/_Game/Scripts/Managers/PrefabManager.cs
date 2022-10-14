@@ -7,9 +7,15 @@ public class PrefabManager : Singleton<PrefabManager>
     [SerializeField]
     private LevelButton levelButtonPrefab;
     [SerializeField]
+    private MinusHP minusHPPrefab;
+    [SerializeField]
     private PlatformData[] platformDatas;
+    [SerializeField]
+    private MovingPlatform[] movingPlatformPrefabs;
 
     public LevelButton LevelButtonPrefab { get { return levelButtonPrefab; } private set { } }
+    public MinusHP MinusHPPrefab { get { return minusHPPrefab; } private set { } }
+    public MovingPlatform[] MovingPlatformPrefabs { get { return movingPlatformPrefabs; } private set { } }
 
     public Platform GetPlatformPrefab(PlatformType type)
     {

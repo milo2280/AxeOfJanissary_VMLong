@@ -14,7 +14,7 @@ public class CanvasSelectWeapon : UICanvas
 
     private void OnEnable()
     {
-        index = (int)DataManager.Instance.CurrentPlayerWeapon;
+        index = (int)DataManager.Instance.CurrentWeapon;
         UpdateIcon();
         UpdateButton();
     }
@@ -27,14 +27,14 @@ public class CanvasSelectWeapon : UICanvas
 
     private void UpdateButton()
     {
-        bool selected = index == (int)DataManager.Instance.CurrentPlayerWeapon;
+        bool selected = index == (int)DataManager.Instance.CurrentWeapon;
         selectObj.SetActive(!selected);
         selectedObj.SetActive(selected);
     }
 
     public void NextButton()
     {
-        if (index < DataManager.PLAYER_CAN_USE - 1)
+        if (index < DataManager.Instance.WeaponAmount - 1)
         {
             index++;
             UpdateIcon();
@@ -54,7 +54,7 @@ public class CanvasSelectWeapon : UICanvas
 
     public void SelectButton()
     {
-        DataManager.Instance.CurrentPlayerWeapon = (WeaponType)index;
+        DataManager.Instance.CurrentWeapon = (WeaponType)index;
         UpdateButton();
     }
 

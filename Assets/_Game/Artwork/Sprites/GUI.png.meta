@@ -4,7 +4,7 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -7151958888795693489
-    second: menu_panel
+    second: box_2
   - first:
       213: 8105364098890919055
     second: button_0
@@ -22,7 +22,7 @@ TextureImporter:
     second: score_board
   - first:
       213: -3238813901825184631
-    second: board
+    second: box_3
   - first:
       213: 319298653339161350
     second: pause
@@ -34,10 +34,10 @@ TextureImporter:
     second: home
   - first:
       213: 9112046958845575407
-    second: box_0
+    second: box_2
   - first:
       213: 5772783901100147917
-    second: box_1
+    second: box_2
   - first:
       213: 3976019420461107629
     second: lock
@@ -52,13 +52,13 @@ TextureImporter:
     second: avatar_box
   - first:
       213: -6613218214482179272
-    second: fill_background
+    second: border
   - first:
       213: 6118865108981898103
-    second: fill_health
+    second: fill_hp
   - first:
       213: 944800511937124426
-    second: fill_mana
+    second: fill_mp
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -172,7 +172,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: menu_panel
+      name: box_0
       rect:
         serializedVersion: 2
         x: 2
@@ -277,28 +277,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: score_board
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 0
-        width: 80
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 25411b53ea804c080800000000000000
-      internalID: -9168193397101357998
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: board
+      name: box_3
       rect:
         serializedVersion: 2
         x: 0
@@ -361,28 +340,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: home
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 214
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b51571445b8a41ff0800000000000000
-      internalID: -66242598018789029
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: box_0
+      name: box_1
       rect:
         serializedVersion: 2
         x: 81
@@ -403,7 +361,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: box_1
+      name: box_2
       rect:
         serializedVersion: 2
         x: 49
@@ -508,7 +466,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fill_background
+      name: border
       rect:
         serializedVersion: 2
         x: 135
@@ -516,7 +474,7 @@ TextureImporter:
         width: 52
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 25, y: 0, z: 25, w: 0}
       outline: []
       physicsShape: []
@@ -529,7 +487,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fill_health
+      name: fill_hp
       rect:
         serializedVersion: 2
         x: 72
@@ -537,7 +495,7 @@ TextureImporter:
         width: 49
         height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 24, y: 0, z: 24, w: 0}
       outline: []
       physicsShape: []
@@ -550,7 +508,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fill_mana
+      name: fill_mp
       rect:
         serializedVersion: 2
         x: 72
@@ -558,7 +516,7 @@ TextureImporter:
         width: 42
         height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 20, y: 0, z: 20, w: 0}
       outline: []
       physicsShape: []

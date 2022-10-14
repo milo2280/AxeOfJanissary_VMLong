@@ -4,13 +4,13 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 5601323976189978565
-    second: staff
+    second: weapon_5
   - first:
       213: -761887118410055393
     second: Weapons_1
   - first:
       213: 9147546874185701050
-    second: sword_0
+    second: weapon_1
   - first:
       213: -8951780388439148649
     second: Weapons_3
@@ -25,7 +25,7 @@ TextureImporter:
     second: Weapons_6
   - first:
       213: -3776783329477156521
-    second: mace
+    second: weapon_4
   - first:
       213: 7834802711767081893
     second: Weapons_8
@@ -37,13 +37,13 @@ TextureImporter:
     second: Weapons_10
   - first:
       213: -7651578999465136024
-    second: axe
+    second: weapon_0
   - first:
       213: 4247077973319795576
     second: Weapons_12
   - first:
       213: 5066663443394370621
-    second: knife
+    second: weapon_3
   - first:
       213: -3161990638662096906
     second: Weapons_14
@@ -52,7 +52,7 @@ TextureImporter:
     second: Weapons_15
   - first:
       213: -4994013504720742411
-    second: sword_1
+    second: weapon_2
   - first:
       213: 4806463276367451825
     second: Weapons_17
@@ -175,7 +175,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sword_0
+      name: weapon_1
       rect:
         serializedVersion: 2
         x: 33
@@ -196,7 +196,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mace
+      name: weapon_4
       rect:
         serializedVersion: 2
         x: 49
@@ -217,7 +217,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: axe
+      name: weapon_0
       rect:
         serializedVersion: 2
         x: 51
@@ -238,7 +238,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: knife
+      name: weapon_3
       rect:
         serializedVersion: 2
         x: 20
@@ -259,7 +259,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sword_1
+      name: weapon_2
       rect:
         serializedVersion: 2
         x: 1
@@ -280,7 +280,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: staff
+      name: weapon_5
       rect:
         serializedVersion: 2
         x: 34

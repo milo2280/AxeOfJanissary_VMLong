@@ -20,7 +20,7 @@ public class CanvasSelectCharacter : UICanvas
 
     private void OnEnable()
     {
-        index = (int)DataManager.Instance.CurrentPlayerCharacter;
+        index = (int)DataManager.Instance.CurrentPlayer;
         UpdateIcon();
         UpdateButton();
     }
@@ -31,7 +31,7 @@ public class CanvasSelectCharacter : UICanvas
 
         if (usedIcons[index] == null)
         {
-            CharacterData data = DataManager.Instance.GetPlayerData((CharacterType)index);
+            CharacterData data = DataManager.Instance.GetPlayerData((PlayerType)index);
             currentIcon = Instantiate(data.Icon, iconParent);
             usedIcons[index] = currentIcon;
         }
@@ -44,7 +44,7 @@ public class CanvasSelectCharacter : UICanvas
 
     private void UpdateButton()
     {
-        bool selected = index == (int)DataManager.Instance.CurrentPlayerCharacter;
+        bool selected = index == (int)DataManager.Instance.CurrentPlayer;
         selectObj.SetActive(!selected);
         selectedObj.SetActive(selected);
     }
@@ -71,7 +71,7 @@ public class CanvasSelectCharacter : UICanvas
 
     public void SelectButton()
     {
-        DataManager.Instance.CurrentPlayerCharacter = (CharacterType)index;
+        DataManager.Instance.CurrentPlayer = (PlayerType)index;
         UpdateButton();
     }
 

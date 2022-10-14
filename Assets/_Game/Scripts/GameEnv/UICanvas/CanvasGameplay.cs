@@ -9,19 +9,18 @@ public class CanvasGameplay : UICanvas
     [SerializeField]
     private TextMeshProUGUI clockTMP;
     [SerializeField]
-    private RectTransform playerHP, botHP;
+    private StatBar[] statBars; 
     [SerializeField]
-    private Image playerAvatar, botAvatar;
+    private GameObject pauseObj, continueObj, homeObj;
     [SerializeField]
-    private GameObject pauseObj, continueObj;
+    private GameObject leftSide, rightSide, singlePanel;
 
     private bool isPause;
     private float timer;
 
     private void OnEnable()
     {
-        GameManager.Instance.OnStateChange += ChangeCanvas;
-        LevelManager.Instance.OnHPChange += UpdateHP;
+        GameManager.Instance.OnStateChange += OnGameStateChange;
         OnInit();
     }
 
@@ -37,12 +36,45 @@ public class CanvasGameplay : UICanvas
     private void OnInit()
     {
         timer = LevelManager.Instance.CurrentLevelData.Time;
-        continueObj.SetActive(false);
-        pauseObj.SetActive(true);
-        UpdateHP(Side.player, 1);
-        UpdateHP(Side.bot, 1);
-        playerAvatar.sprite = LevelManager.Instance.PlayerData.Avatar;
-        botAvatar.sprite = LevelManager.Instance.BotData.Avatar;
+        UpdateButton();
+
+        statBars[1].gameObject.SetActive(LevelManager.Instance.IsMode(GameMode.mode2v2));
+        statBars[3].gameObject.SetActive(LevelManager.Instance.IsMode(GameMode.mode2v2));
+
+        switch (LevelManager.Instance.CurrentGameMode)
+        {
+            case GameMode.mode1v1:
+                statBars[0].OnInit(LevelManager.Instance.CharacterRefs[0], 1f);
+                statBars[2].OnInit(LevelManager.Instance.CharacterRefs[2], 1f);
+
+                leftSide.SetActive(false);
+                rightSide.SetActive(false);
+                singlePanel.SetActive(true);
+                break;
+
+            case GameMode.mode2v2:
+                leftSide.SetActive(false);
+                rightSide.SetActive(false);
+                singlePanel.SetActive(true);
+
+                for (int i = 0; i < statBars.Length; i++)
+                {
+                    statBars[i].OnInit(LevelManager.Instance.CharacterRefs[i], 0.5f);
+                }
+                break;
+
+            case GameMode.modePvP:
+                leftSide.SetActive(true);
+                rightSide.SetActive(true);
+                singlePanel.SetActive(false);
+
+                statBars[0].OnInit(LevelManager.Instance.CharacterRefs[0], 1f);
+                statBars[2].OnInit(LevelManager.Instance.CharacterRefs[2], 1f);
+                break;
+
+            default:
+                break;
+        }
     }
 
     private void UpdateClock()
@@ -55,58 +87,71 @@ public class CanvasGameplay : UICanvas
             minute = 0;
             second = 0;
 
-            GameManager.Instance.ChangeState(GameState.Draw);
+            LevelManager.Instance.ChangeEndType(EndType.Draw);
+            GameManager.Instance.ChangeState(GameState.End);
         }
 
         clockTMP.text = string.Format("{0:0}:{1:00}", minute, second);
     }
 
-    private void UpdateHP(Side side, float percent)
+    private void OnGameStateChange(GameState state)
     {
-        if (side == Side.player)
-        {
-            playerHP.localScale = new Vector3(percent, 1f, 1f);
-        }
-        else
-        {
-            botHP.localScale = new Vector3(percent, 1f, 1f);
-        }
+        if (state != GameState.Gameplay) Close();
     }
 
-    private void ChangeCanvas(GameState state)
+    private void UpdateButton()
     {
-        if (state != GameState.Gameplay)
-        {
-            Close();
-        }
+        continueObj.SetActive(isPause);
+        homeObj.SetActive(isPause);
+        pauseObj.SetActive(!isPause);
     }
 
     public void PauseButton()
     {
         Time.timeScale = 0;
         isPause = true;
-        continueObj.SetActive(true);
-        pauseObj.SetActive(false);
+        UpdateButton();
+    }
+
+    public void HomeButton()
+    {
+        Time.timeScale = 1;
+        isPause = false;
+        GameManager.Instance.ChangeState(GameState.MainMenu);
     }
 
     public void ContinueButton()
     {
         Time.timeScale = 1;
         isPause = false;
-        continueObj.SetActive(false);
-        pauseObj.SetActive(true);
+        UpdateButton();
+    }
+
+    public void LeftPlayerPointerDown()
+    {
+        (LevelManager.Instance.CharacterRefs[0] as Player).OnPointerDown();
+    }
+
+    public void LeftPlayerPointerUp()
+    {
+        (LevelManager.Instance.CharacterRefs[0] as Player).OnPointerUp();
+    }
+
+    public void RightPlayerPointerDown()
+    {
+        (LevelManager.Instance.CharacterRefs[2] as Player).OnPointerDown();
+    }
+
+    public void RightPlayerPointerUp()
+    {
+        (LevelManager.Instance.CharacterRefs[2] as Player).OnPointerUp();
     }
 
     private void OnDisable()
     {
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.OnStateChange -= ChangeCanvas;
-        }
-
-        if (LevelManager.Instance != null)
-        {
-            LevelManager.Instance.OnHPChange -= UpdateHP;
+            GameManager.Instance.OnStateChange -= OnGameStateChange;
         }
     }
 }

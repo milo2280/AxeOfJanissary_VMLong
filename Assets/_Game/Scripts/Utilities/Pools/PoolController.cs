@@ -8,6 +8,10 @@ public class PoolController : MonoBehaviour
     private Transform[] poolBullets;
     [SerializeField]
     private GameUnit[] bullets;
+    [SerializeField]
+    private Transform poolMinusHP;
+    [SerializeField]
+    private GameUnit minusHP;
 
     private void Awake()
     {
@@ -17,17 +21,25 @@ public class PoolController : MonoBehaviour
         {
             SimplePool.Preload(bullets[i], 10, poolBullets[i]);
         }
+
+        SimplePool.Preload(minusHP, 5, poolMinusHP);
     }
 
     private void OnGameStateChange(GameState state)
     {
         switch (state)
         {
-            case GameState.Win:
-            case GameState.Lose:
-            case GameState.Draw:
+            case GameState.End:
                 SimplePool.CollectAll();
                 break;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnStateChange -= OnGameStateChange;
         }
     }
 }

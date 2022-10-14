@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Bot : Character
 {
-    private IState<Bot> currentState;
+    [SerializeField]
+    private WeaponType weaponType;
 
+    private IState<Bot> currentState;
     private float timer, randomHoldTime;
 
-    private void Update()
+    protected override void Update()
     {
-        if (!GameManager.Instance.IsState(GameState.Gameplay)) return;
+        base.Update();
 
         if (currentState != null)
         {
@@ -21,15 +23,8 @@ public class Bot : Character
     public override void OnInit()
     {
         ChangeState(new IdleState());
-        LevelManager.Instance.BotData = data;
-        weapon.WeaponType = LevelManager.Instance.CurrentLevelData.WeaponType;
+        weapon.OnInit(weaponType);
         base.OnInit();
-    }
-
-    public override void OnHit(float damage)
-    {
-        base.OnHit(damage);
-        LevelManager.Instance.UpdateHP(Side.bot, currentHP / data.HP);
     }
 
     public void ChangeState(IState<Bot> state)
@@ -47,16 +42,11 @@ public class Bot : Character
         }
     }
 
-    protected override void Attack(float forcePercent, int side)
-    {
-        weapon.Attack(forcePercent, side);
-    }
-
     #region Idle State
 
     public void EnterIdleState()
     {
-        timer = Random.Range(0.5f, 1.5f);
+        timer = Random.Range(1f, 1.5f);
     }
 
     public void ExecuteIdleState()
@@ -76,7 +66,7 @@ public class Bot : Character
     #region Dogde State
     public void EnterDogdeState()
     {
-        timer = Random.Range(0.2f, 1f); ;
+        timer = Random.Range(0.2f, 1f);
     }
 
     public void ExecuteDogdeState()
@@ -89,6 +79,7 @@ public class Bot : Character
             if (timer < 0)
             {
                 Jump();
+                timer = Random.Range(0.2f, 1f);
             }
         }
         else
@@ -111,14 +102,14 @@ public class Bot : Character
     {
         holdTime += Time.deltaTime;
         forcePercent = Mathf.Clamp01(holdTime / MAX_HOLD_TIME);
-        if (!Mathf.Approximately(forcePercent, 1f))
+        if (!Mathf.Approximately(forcePercent, 1))
         {
             forceBar.UpdateFill(forcePercent);
         }
 
         if (holdTime > randomHoldTime)
         {
-            Attack(forcePercent, -1);
+            Attack(forcePercent);
             forceBar.gameObject.SetActive(false);
             animController.ChangeAnim(CharacterAnim.idle);
             ChangeState(new DogdeState());

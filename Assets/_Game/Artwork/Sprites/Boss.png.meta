@@ -4,22 +4,22 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -6248741079362886434
-    second: boss_idle_0
+    second: boss_0_idle_0
   - first:
       213: 2287940250583960180
-    second: boss_idle_1
+    second: boss_0_idle_1
   - first:
       213: 4935984790844978548
-    second: boss_idle_2
+    second: boss_0_idle_2
   - first:
       213: -1341004319433955295
-    second: boss_idle_3
+    second: boss_0_idle_3
   - first:
       213: -5999534734459318484
-    second: boss_jump
+    second: boss_0_jump
   - first:
       213: -7156185490814696510
-    second: boss_avatar
+    second: boss_0_avatar
   - first:
       213: 1243870551893655439
     second: Boss_6
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boss_idle_0
+      name: boss_0_idle_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 1
-        width: 23
-        height: 30
+        width: 26
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,12 +160,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_idle_1
+      name: boss_0_idle_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 31
         y: 1
-        width: 23
+        width: 26
         height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -181,12 +181,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_idle_2
+      name: boss_0_idle_2
       rect:
         serializedVersion: 2
-        x: 65
+        x: 63
         y: 1
-        width: 22
+        width: 26
         height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -202,13 +202,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_idle_3
+      name: boss_0_idle_3
       rect:
         serializedVersion: 2
         x: 95
         y: 1
         width: 26
-        height: 28
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,13 +223,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_jump
+      name: boss_0_jump
       rect:
         serializedVersion: 2
-        x: 128
-        y: 3
-        width: 22
-        height: 28
+        x: 126
+        y: 2
+        width: 26
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,15 +244,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_avatar
+      name: boss_0_avatar
       rect:
         serializedVersion: 2
-        x: 229
-        y: 11
-        width: 16
-        height: 16
+        x: 225
+        y: 5
+        width: 21
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

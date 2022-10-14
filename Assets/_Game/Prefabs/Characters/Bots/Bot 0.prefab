@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7741642600712511628
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -420393690177621899, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: weaponType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656635596106358, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9fbbca632c399744788f432d93df274e, type: 2}
+    - target: {fileID: 3102656635596106359, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3454224475449390428, guid: cef5fe4b9e17f37409ad7f60769ee675, type: 3}
+    - target: {fileID: 3102656635596106359, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656636289611620, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6895629
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656636289611620, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: m_Size.y
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656636289611620, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.063913524
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656636289611620, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.123769075
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656636289611624, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: m_Name
+      value: Bot 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656636289611625, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656636289611625, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656636289611625, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656636289611625, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656636289611625, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656636289611625, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656636289611625, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656636289611625, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656636289611625, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656636289611625, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102656636289611625, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a40f740d1674dda44a2e07f7b61e32fa, type: 3}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7e4e84a958c6354889796dd61867766, type: 3}
+  m_Name: Weapon 5
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 8720807065673142365, guid: 0a548f0962d9d9f498d2ceaa03d855e9, type: 3}
+  bullet: {fileID: 6424657819814262257, guid: ac7a29edda93f0640b3c7a2f93587c11, type: 3}
+  sprite: {fileID: 5601323976189978565, guid: 970555f6780820142b0471daec8c1e9e, type: 3}
+  minFlyForce: {x: 3, y: 2.5}
+  holdFlyForce: {x: 9, y: 8.5}
+  minSpinForce: -35
+  holdSpinForce: -115
+  damage: 30

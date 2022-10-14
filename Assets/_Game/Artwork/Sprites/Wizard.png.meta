@@ -4,16 +4,16 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 1457491203435894738
-    second: female_wizard_idle_0
+    second: player_3_idle_0
   - first:
       213: -4323298009402118593
-    second: female_wizard_idle_1
+    second: player_3_idle_1
   - first:
       213: -5959617307868019196
-    second: female_wizard_idle_2
+    second: player_3_idle_2
   - first:
       213: 6002840866345723114
-    second: female_wizard_avatar
+    second: player_3_avatar
   - first:
       213: -514450527010680930
     second: Wizard_4
@@ -25,19 +25,19 @@ TextureImporter:
     second: Wizard_6
   - first:
       213: -4450547291159475125
-    second: female_wizard_jump
+    second: player_3_jump
   - first:
       213: -2974485201166670565
-    second: male_wizard_idle_0
+    second: player_2_idle_0
   - first:
       213: 6693900386496496687
-    second: male_wizard_idle_1
+    second: player_2_idle_1
   - first:
       213: -4768083446596788535
-    second: male_wizard_idle_2
+    second: player_2_idle_2
   - first:
       213: 395287148999869125
-    second: male_wizard_idle_3
+    second: player_2_idle_3
   - first:
       213: 5334313739595688503
     second: Wizard_12
@@ -46,16 +46,16 @@ TextureImporter:
     second: Wizard_13
   - first:
       213: 4993805963592342420
-    second: male_wizard_avatar
+    second: player_2_avatar
   - first:
       213: -2179767397032201523
     second: Wizard_15
   - first:
       213: 190289278190396854
-    second: male_wizard_jump
+    second: player_2_jump
   - first:
       213: -2366510669610082727
-    second: female_wizard_idle_3
+    second: player_3_idle_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -169,13 +169,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: female_wizard_idle_0
+      name: player_3_idle_0
       rect:
         serializedVersion: 2
         x: 1
         y: 33
-        width: 15
-        height: 20
+        width: 16
+        height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,12 +190,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: female_wizard_idle_1
+      name: player_3_idle_1
       rect:
         serializedVersion: 2
         x: 17
         y: 33
-        width: 15
+        width: 16
         height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -211,13 +211,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: female_wizard_idle_2
+      name: player_3_idle_2
       rect:
         serializedVersion: 2
         x: 33
         y: 33
         width: 16
-        height: 18
+        height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,7 +232,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: female_wizard_avatar
+      name: player_3_avatar
       rect:
         serializedVersion: 2
         x: 97
@@ -240,7 +240,7 @@ TextureImporter:
         width: 15
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -253,7 +253,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: female_wizard_jump
+      name: player_3_jump
       rect:
         serializedVersion: 2
         x: 129
@@ -274,13 +274,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: male_wizard_idle_0
+      name: player_2_idle_0
       rect:
         serializedVersion: 2
         x: 3
         y: 1
-        width: 14
-        height: 19
+        width: 15
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -295,12 +295,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: male_wizard_idle_1
+      name: player_2_idle_1
       rect:
         serializedVersion: 2
         x: 19
         y: 1
-        width: 14
+        width: 15
         height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -316,13 +316,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: male_wizard_idle_2
+      name: player_2_idle_2
       rect:
         serializedVersion: 2
         x: 34
         y: 1
         width: 15
-        height: 18
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -337,13 +337,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: male_wizard_idle_3
+      name: player_2_idle_3
       rect:
         serializedVersion: 2
         x: 51
         y: 1
-        width: 14
-        height: 18
+        width: 15
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -358,7 +358,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: male_wizard_avatar
+      name: player_2_avatar
       rect:
         serializedVersion: 2
         x: 98
@@ -379,7 +379,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: male_wizard_jump
+      name: player_2_jump
       rect:
         serializedVersion: 2
         x: 131
@@ -400,13 +400,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: female_wizard_idle_3
+      name: player_3_idle_3
       rect:
         serializedVersion: 2
         x: 49
         y: 33
-        width: 15
-        height: 18
+        width: 16
+        height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

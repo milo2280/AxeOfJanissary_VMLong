@@ -30,3 +30,8 @@ public enum CharacterAnim
     jump,
     charge,
 }
+
+public enum MinusHPAnim
+{
+    play,
+}

@@ -12,9 +12,7 @@ public enum UIID
     UICMainMenu = 2,
     UICSelectLevel = 3,
     UICSetting = 4,
-    UICLose = 5,
-    UICWin = 6,
-    UICDraw = 7,
+    UICEnd = 5,
     UICSelectCharacter = 8,
     UICSelectWeapon = 9,
 }

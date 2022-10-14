@@ -11,7 +11,7 @@ public class GameManager : Singleton<GameManager>
     private void Awake()
     {
         Application.targetFrameRate = 60;
-        Input.multiTouchEnabled = false;
+        //Input.multiTouchEnabled = false;
 
         DataManager.Instance.LoadData();
         ChangeState(GameState.MainMenu);
@@ -34,17 +34,8 @@ public class GameManager : Singleton<GameManager>
             case GameState.Gameplay:
                 HandleGameplayState();
                 break;
-            case GameState.Pause:
-                HandlePauseState();
-                break;
-            case GameState.Win:
-                HandleWinState();
-                break;
-            case GameState.Lose:
-                HandleLoseState();
-                break;
-            case GameState.Draw:
-                HandleDrawState();
+            case GameState.End:
+                HandleEndState();
                 break;
             default:
                 break;
@@ -64,23 +55,9 @@ public class GameManager : Singleton<GameManager>
         UIManager.Instance.OpenUI(UIID.UICGameplay);
     }
 
-    private void HandlePauseState()
+    private void HandleEndState()
     {
-    }
-
-    private void HandleWinState()
-    {
-        UIManager.Instance.OpenUI(UIID.UICWin);
-    }
-
-    private void HandleLoseState()
-    {
-        UIManager.Instance.OpenUI(UIID.UICLose);
-    }
-
-    private void HandleDrawState()
-    {
-        UIManager.Instance.OpenUI(UIID.UICDraw);
+        UIManager.Instance.OpenUI(UIID.UICEnd);
     }
 
     private void OnApplicationQuit()
@@ -89,4 +66,4 @@ public class GameManager : Singleton<GameManager>
     }
 }
 
-public enum GameState { MainMenu, Gameplay, Pause, Win, Lose, Draw }
+public enum GameState { MainMenu, Gameplay, End }

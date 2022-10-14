@@ -27,7 +27,7 @@ public class CanvasMainMenu : UICanvas
 
     private void UpdatePlayerIcon()
     {
-        CharacterType type = DataManager.Instance.CurrentPlayerCharacter;
+        PlayerType type = DataManager.Instance.CurrentPlayer;
         int index = (int)type;
 
         if (currentPlayerIcon != null) currentPlayerIcon.SetActive(false);
@@ -47,9 +47,9 @@ public class CanvasMainMenu : UICanvas
 
     private void UpdateWeaponIcon()
     {
-        if (currentWeaponType != DataManager.Instance.CurrentPlayerWeapon)
+        if (currentWeaponType != DataManager.Instance.CurrentWeapon)
         {
-            currentWeaponType = DataManager.Instance.CurrentPlayerWeapon;
+            currentWeaponType = DataManager.Instance.CurrentWeapon;
             WeaponData data = DataManager.Instance.GetWeaponData(currentWeaponType);
             weaponIcon.sprite = data.Sprite;
         }
@@ -57,7 +57,22 @@ public class CanvasMainMenu : UICanvas
 
     public void StartButton()
     {
+        LevelManager.Instance.ChangeMode(GameMode.mode1v1);
         UIManager.Instance.OpenUI(UIID.UICSelectLevel);
+        Close();
+    }
+
+    public void Start2v2Button()
+    {
+        LevelManager.Instance.ChangeMode(GameMode.mode2v2);
+        GameManager.Instance.ChangeState(GameState.Gameplay);
+        Close();
+    }
+
+    public void StartPvPButton()
+    {
+        LevelManager.Instance.ChangeMode(GameMode.modePvP);
+        GameManager.Instance.ChangeState(GameState.Gameplay);
         Close();
     }
 

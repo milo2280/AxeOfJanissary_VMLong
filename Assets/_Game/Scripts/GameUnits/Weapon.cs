@@ -10,18 +10,17 @@ public class Weapon : MonoBehaviour
     private WeaponType weaponType;
     private WeaponData weaponData;
     private GameObject currentWeapon;
-    private GameObject[] spawnedWeapons;
+    private GameObject[] cacheWeapons;
     private float timer;
-    private bool isRespawning;
+    private bool isRespawning, isPlaying;
 
     private const float RESPAWN_TIME = 2f;
 
     public bool IsRespawning { get { return isRespawning; } private set { } }
-    public WeaponType WeaponType { get { return weaponType; } set { weaponType = value; } }
 
     private void Awake()
     {
-        spawnedWeapons = new GameObject[DataManager.PLAYER_CAN_USE];
+        cacheWeapons = new GameObject[DataManager.Instance.WeaponAmount];
     }
 
     private void OnEnable()
@@ -31,7 +30,8 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        if (!GameManager.Instance.IsState(GameState.Gameplay)) return;
+        if (!isPlaying) return;
+
         if (isRespawning)
         {
             timer -= Time.deltaTime;
@@ -43,43 +43,49 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void OnInit()
+    public void OnInit(WeaponType type)
     {
         isRespawning = false;
-        int index = (int)weaponType;
+
+        if (weaponData != null && weaponType == type) return;
+
+        weaponType = type;
+        int index = (int)weaponType % 100;
+
         weaponData = DataManager.Instance.GetWeaponData(weaponType);
 
-        if (weaponData.Weapon != null)
-        {
-            if (currentWeapon != null) currentWeapon.SetActive(false);
+        if (currentWeapon != null) currentWeapon.SetActive(false);
 
-            if (spawnedWeapons[index] == null)
-            {
-                currentWeapon = Instantiate(weaponData.Weapon, myTransform);
-                spawnedWeapons[index] = currentWeapon;
-            }
-            else
-            {
-                currentWeapon = spawnedWeapons[index];
-                currentWeapon.SetActive(true);
-            }
+        if (cacheWeapons[index] == null)
+        {
+            currentWeapon = Instantiate(weaponData.Weapon, myTransform);
+            cacheWeapons[index] = currentWeapon;
         }
-    }
-
-    private void OnGameStateChange(GameState state)
-    {
-        if (currentWeapon != null)
+        else
         {
-            currentWeapon.SetActive(state == GameState.Gameplay);
+            currentWeapon = cacheWeapons[index];
+            currentWeapon.SetActive(true);
         }
     }
 
     public void Attack(float forcePercent, int side)
     {
         SimplePool.Spawn<Bullet>(weaponData.Bullet, bulletPoint.position, bulletPoint.rotation).OnInit(weaponData, forcePercent, side);
+        if (currentWeapon != null) currentWeapon.SetActive(false);
         timer = RESPAWN_TIME;
         isRespawning = true;
-        if (currentWeapon != null) currentWeapon.SetActive(false);
+    }
+
+    public void SetActive(bool active)
+    {
+        isRespawning = false;
+        currentWeapon.SetActive(active);
+    }
+
+    private void OnGameStateChange(GameState state)
+    {
+        isPlaying = state == GameState.Gameplay;
+        if (currentWeapon != null) currentWeapon.SetActive(isPlaying);
     }
 
     private void OnDisable()
