@@ -135,7 +135,7 @@ public abstract class Character : MonoBehaviour, IHit
 
         if (hit.collider != null)
         {
-            if (Mathf.Abs(hit.point.y - myFoot.position.y) < 0.1f && myRigidbody2D.velocity.y < 0f)
+            if (Mathf.Abs(hit.point.y - myFoot.position.y) < 0.1f && myRigidbody2D.velocity.y <= 0f)
             {
                 isGrounded = true;
                 animController.ChangeAnim(CharacterAnim.idle);
