@@ -71,7 +71,7 @@ public abstract class Character : MonoBehaviour, IHit
         characterName.text = name;
         characterName.color = color;
         Vector3 temp = characterName.transform.localScale;
-        characterName.transform.localScale = new Vector3(temp.x * (int)side, temp.y, temp.z);
+        characterName.transform.localScale = new Vector3(Mathf.Abs(temp.x) * (int)side, temp.y, temp.z);
     }
 
     public virtual void OnHit(float damage)

@@ -926,7 +926,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4080415613782753340}
-        m_TargetAssemblyTypeName: CanvasDraw, Assembly-CSharp
+        m_TargetAssemblyTypeName: CanvasEnd, Assembly-CSharp
         m_MethodName: RestartButton
         m_Mode: 1
         m_Arguments:
