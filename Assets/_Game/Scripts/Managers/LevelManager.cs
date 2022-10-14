@@ -31,6 +31,7 @@ public class LevelManager : Singleton<LevelManager>
     public LevelData CurrentLevelData { get { return currentLevelData; } set { currentLevelData = value; } }
     public Character[] CharacterRefs { get { return characterRefs; } private set { } }
     public GameMode CurrentGameMode { get { return currentGameMode; } private set { } }
+    public EndType EndType { get { return endType; } private set { } }
 
     private void Awake()
     {

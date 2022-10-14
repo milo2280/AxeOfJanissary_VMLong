@@ -593,6 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDestroyOnClose: 0
+  titleTMP: {fileID: 8318148218974284189}
 --- !u!1 &8318148218974284191
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,7 +740,7 @@ GameObject:
   - component: {fileID: 8318148219006126537}
   - component: {fileID: 8318148219006126538}
   m_Layer: 5
-  m_Name: Draw Title
+  m_Name: End Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
