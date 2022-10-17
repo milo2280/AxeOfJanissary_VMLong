@@ -7,9 +7,15 @@ public class Player : Character
 {
     private bool isAttackStarted;
 
-    protected override void Update()
+    protected void Update()
     {
-        base.Update();
+        if (!GameManager.Instance.IsState(GameState.Gameplay) || isDead) return;
+
+        if (!isGrounded)
+        {
+            CheckGround();
+            return;
+        }
 
         if (isAttackStarted)
         {
@@ -28,7 +34,7 @@ public class Player : Character
 
     public void OnPointerDown()
     {
-        if (!isPlaying || isDead) return;
+        if (!GameManager.Instance.IsState(GameState.Gameplay) || isDead) return;
         if (!isGrounded || IsMouseOverUI()) return;
 
         if (weapon.IsRespawning)
@@ -43,7 +49,7 @@ public class Player : Character
 
     public void OnPointerUp()
     {
-        if (!isPlaying || isDead) return;
+        if (!GameManager.Instance.IsState(GameState.Gameplay) || isDead) return;
         if (!isGrounded || IsMouseOverUI()) return;
 
         if (isAttackStarted)
@@ -86,7 +92,7 @@ public class Player : Character
 
     private bool IsMouseOverUI()
     {
-        if (isPlaying)
+        if (GameManager.Instance.IsState(GameState.Gameplay))
         {
             PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
             pointerEventData.position = Input.mousePosition;

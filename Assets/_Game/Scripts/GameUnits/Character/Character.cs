@@ -24,11 +24,9 @@ public abstract class Character : MonoBehaviour, IHit
     [SerializeField]
     TextMeshProUGUI characterName;
 
-    public bool isGrounded;
-
     protected Side side;
     protected CharacterData data;
-    protected bool isPlaying, isDead;
+    protected bool isGrounded, isDead;
     protected float holdTime, forcePercent, currentHP;
 
     protected const float MAX_HOLD_TIME = 1f;
@@ -40,17 +38,6 @@ public abstract class Character : MonoBehaviour, IHit
     protected void OnEnable()
     {
         GameManager.Instance.OnStateChange += OnGameStateChange;
-    }
-
-    protected virtual void Update()
-    {
-        if (!isPlaying || isDead) return;
-
-        if (!isGrounded)
-        {
-            CheckGround();
-            return;
-        }
     }
 
     public void InitData(CharacterData data, Side side)
@@ -115,19 +102,6 @@ public abstract class Character : MonoBehaviour, IHit
         SoundManager.Instance.PlayAudio(AudioType.jump, 0.5f);
     }
 
-    protected virtual void Attack(float forcePercent)
-    {
-        weapon.Attack(forcePercent, (int)side);
-    }
-
-    protected virtual void OnGameStateChange(GameState state)
-    {
-        isPlaying = state == GameState.Gameplay;
-        if (!isPlaying) forceBar.gameObject.SetActive(false);
-        characterName.gameObject.SetActive(isPlaying);
-        spriteRenderer.enabled = !GameManager.Instance.IsState(GameState.MainMenu);
-    }
-
     // On... such, use raycast instead
     protected void CheckGround()
     {
@@ -140,6 +114,35 @@ public abstract class Character : MonoBehaviour, IHit
                 isGrounded = true;
                 animController.ChangeAnim(CharacterAnim.idle);
             }
+        }
+    }
+
+    protected virtual void Attack(float forcePercent)
+    {
+        weapon.Attack(forcePercent, (int)side);
+    }
+
+    protected virtual void OnGameStateChange(GameState state)
+    {
+        switch (state)
+        {
+            case GameState.MainMenu:
+                characterName.gameObject.SetActive(false);
+                spriteRenderer.enabled = false;
+                break;
+
+            case GameState.Gameplay:
+                characterName.gameObject.SetActive(true);
+                spriteRenderer.enabled = true;
+                break;
+
+            case GameState.End:
+                forceBar.gameObject.SetActive(false);
+                animController.ChangeAnim(CharacterAnim.idle);
+                break;
+
+            default:
+                break;
         }
     }
 

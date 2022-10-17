@@ -10,9 +10,15 @@ public class Bot : Character
     private IState<Bot> currentState;
     private float timer, randomHoldTime;
 
-    protected override void Update()
+    protected void Update()
     {
-        base.Update();
+        if (!GameManager.Instance.IsState(GameState.Gameplay) || isDead) return;
+
+        if (!isGrounded)
+        {
+            CheckGround();
+            return;
+        }
 
         if (currentState != null)
         {
@@ -64,6 +70,7 @@ public class Bot : Character
     #endregion
 
     #region Dogde State
+
     public void EnterDogdeState()
     {
         timer = Random.Range(0.2f, 1f);
@@ -71,7 +78,7 @@ public class Bot : Character
 
     public void ExecuteDogdeState()
     {
-        if (!isGrounded) return;
+        //if (!isGrounded) return;
 
         if (weapon.IsRespawning && timer > 0)
         {
@@ -87,9 +94,11 @@ public class Bot : Character
             ChangeState(new AttackState());
         }
     }
+
     #endregion
 
     #region Attack State
+
     public void EnterAttackState()
     {
         holdTime = 0;
@@ -115,5 +124,6 @@ public class Bot : Character
             ChangeState(new DogdeState());
         }
     }
+
     #endregion
 }

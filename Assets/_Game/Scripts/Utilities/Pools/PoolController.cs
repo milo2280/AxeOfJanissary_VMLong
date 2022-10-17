@@ -27,11 +27,9 @@ public class PoolController : MonoBehaviour
 
     private void OnGameStateChange(GameState state)
     {
-        switch (state)
+        if (state != GameState.Gameplay)
         {
-            case GameState.End:
-                SimplePool.CollectAll();
-                break;
+            SimplePool.CollectAll();
         }
     }
 
